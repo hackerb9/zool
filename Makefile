@@ -29,6 +29,7 @@ install:
 	cp -a zool.desktop ${HOME}/.local/share/applications/
 	-xdg-mime default ${HOME}/.local/share/applications/zool.desktop x-scheme-handler/zoommtg
 	-gio mime x-scheme-handler/zoommtg zool.desktop
+	-update-desktop-database ~/.local/share/applications
 	@if xdg-mime query default x-scheme-handler/zoommtg | grep -s zool;\
 	then\
 	  echo "All done!" ;\
