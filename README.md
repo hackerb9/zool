@@ -41,14 +41,15 @@ bug is fixed, Zool will be changed to use your default browser.
 
 ## Nitty gritty
 
-The `zool.desktop` file specifies the handler for MIME type
-`x-schema-zoommtg` to be a program named `zool`. Putting it in
-~/.local/share/applications/ is usually enough to get the handler
-registered.
+The [`zool.desktop`](https://github.com/hackerb9/zool/blob/master/zool.desktop)
+file specifies the handler for MIME type `x-schema-zoommtg` to be a
+program named `zool`. Putting it in ~/.local/share/applications/ is
+usually enough to get the handler registered.
 
-The `zool` shell script simply transmogrifies the `zoommtg://` URI so
-that it becomes a standard `https://` address using Zoom's webclient
-and opens it. For example:
+The [`zool`](https://github.com/hackerb9/zool/blob/master/zool.desktop) 
+shell script simply transmogrifies the `zoommtg://` URI so that it
+becomes a standard `https://` address using Zoom's webclient and opens
+it. For example:
 
 ```
 zoommtg://zoom.us/join?action=join&confid=dXNzPTVhNDYyMjAxLjAzRXdVclZEeWRpRDlRTC16WU1FM05FVnN6c0pFVk9uanpRWlJjQjVQUzAzbkp3eVkwU1RnZ1g5U2pScDhjakRfOG5KeTRzcXhCSHVJVG1La2Z5aGlBJTNEJTNEJnRpZD01OTVkMzMzMDdmYTc0OTk5YjcyYWQ3ZTUzMjllNmFiMA%3D%3D&confno=91265111161&zc=0&pwd=UE54Y3AxbHRvRlA2azQ1K2VWMEF2Zz09&pk=&mcv=0.92.11227.0929&browser=chrome
