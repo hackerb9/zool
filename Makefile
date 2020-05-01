@@ -16,10 +16,9 @@ ifeq (${bindir}, )      # Failsafe if bindir didn't get set above
   bindir=$(prefix)/bin
 endif
 
-
 usage:
-	@if [ ! -w "${bindir}" ]; then MAYBESUDO="sudo "; fi
-	@echo "Type '${MAYBESUDO}make install' to install Zool to ${bindir}."
+	@if [ ! -w "${bindir}" ]; then MAYBESUDO="sudo "; fi ;\
+	echo "Type '$${MAYBESUDO}make install' to install Zool to ${bindir}."
 	@echo "Type 'make uninstall' to remove it."
 	@echo
 	@echo "To install in a different directory, "
