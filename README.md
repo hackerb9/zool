@@ -46,7 +46,7 @@ file specifies the handler for MIME type `x-schema-zoommtg` to be a
 program named `zool`. Putting it in ~/.local/share/applications/ is
 usually enough to get the handler registered.
 
-The [`zool`](https://github.com/hackerb9/zool/blob/master/zool.desktop) 
+The [`zool`](https://github.com/hackerb9/zool/blob/master/zool) 
 shell script simply transmogrifies the `zoommtg://` URI so that it
 becomes a standard `https://` address using Zoom's webclient and opens
 it. For example:
