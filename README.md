@@ -30,7 +30,7 @@ cd zool
 make install
 ```
 
-That is all.
+That is all. Try opening a Zoom link.
 
 ## Bugs
 
