@@ -30,11 +30,12 @@ install:
 	-xdg-mime default ${HOME}/.local/share/applications/zool.desktop x-scheme-handler/zoommtg
 	-gio mime x-scheme-handler/zoommtg zool.desktop
 	-update-desktop-database ~/.local/share/applications
-	@if xdg-mime query default x-scheme-handler/zoommtg | grep -s zool;\
+	@if xdg-mime query default x-scheme-handler/zoommtg | grep -q zool;\
 	then\
-	  echo "All done!" ;\
+	  true "There is no Zoom, only Zool!" ;\
+	  echo "Success." ;\
 	else \
-	  echo "Oops, something went wrong.Running: " ;\
+	  echo "Oops, something went wrong. Running: " ;\
 	  echo "  xdg-mime query default x-scheme-handler/zoommtg" ;\
 	  echo "ought to say zool.desktop, but instead it says" ;\
 	  echo -n "'" ;\
@@ -46,4 +47,11 @@ install:
 uninstall:
 	rm -f ${HOME}/.local/share/applications/zool.desktop
 	rm -f /usr/local/bin/zool
-	xdg-mime query default x-scheme-handler/zoommtg
+	update-desktop-database ~/.local/share/applications
+	@if xdg-mime query default x-scheme-handler/zoommtg | grep -q zool ;\
+	then \
+	  echo "Error. xdg-mime says that Zool is still registered." ;\
+	  false ;\
+	else \
+	  echo "Zool successfully uninstalled" ;\
+	fi
