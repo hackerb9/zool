@@ -18,7 +18,8 @@ endif
 
 
 usage:
-	@echo "Type 'make install' to install Zool to ${bindir}."
+	@if [ ! -w "${bindir}" ]; then MAYBESUDO="sudo "; fi
+	@echo "Type '${MAYBESUDO}make install' to install Zool to ${bindir}."
 	@echo "Type 'make uninstall' to remove it."
 	@echo
 	@echo "To install in a different directory, "
