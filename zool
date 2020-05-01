@@ -9,7 +9,7 @@
 # The important thing is is the "confno". Probably pwd is needed too.
 # So, basically, we want to transform:
 # "zoommtg://zoom.us/...confno=9126511116"
-# to be "https://zoomus/wc/join/9216511116?pwd=..."
+# to be "https://zoom.us/wc/join/9216511116?pwd=..."
 # 
 
 url="${1#zoommtg://}"		# zoom.us/join?action=join&confid=...
@@ -19,9 +19,14 @@ etc="${confno#*&}"		# pwd=UE54Y..
 confno="${confno%%&*}"		# 9216511116
 url="https://$hostname/wc/join/$confno?$etc"
 
-# As of Firefox 68.7.0 in May 2020, Zoom refuses to allow audio in
+
+# Uncomment this for debugging to syslog
+logger -s "Zool converting '$1'  to  '$url'"
+
+# BUG: As of Firefox 68.7.0 in May 2020, Zoom refuses to allow audio in
 # Firefox and suggests using Google Chrome. Once this is fixed, this
 # can just be "xdg-open".
 chromium "$url" || google-chrome "$url" || chrome "$url" || xdg-open "$url"
+
 
 # There is no Zoom.... only Zool.
