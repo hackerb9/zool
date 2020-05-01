@@ -38,12 +38,11 @@ install:
 	  true "There is no Zoom, only Zool!" ;\
 	  echo "Success." ;\
 	else \
-	  echo "Oops, something went wrong. Running: " ;\
+	  echo "Oops, something went wrong. Output from: " ;\
 	  echo "  xdg-mime query default x-scheme-handler/zoommtg" ;\
 	  echo "ought to say zool.desktop, but instead it says" ;\
-	  echo -n "'" ;\
+	  echo -n "  " ;\
 	  xdg-mime query default x-scheme-handler/zoommtg ;\
-	  echo -n "'" ;\
 	fi
 
 
