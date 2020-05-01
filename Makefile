@@ -36,9 +36,9 @@ install:
 	  echo "Oops, something went wrong.Running: " ;\
 	  echo "  xdg-mime query default x-scheme-handler/zoommtg" ;\
 	  echo "ought to say zool.desktop, but instead it says" ;\
-	  echo -n "'"
-	  xdg-mime query default x-scheme-handler/zoommtg
-	  echo -n "'"
+	  echo -n "'" ;\
+	  xdg-mime query default x-scheme-handler/zoommtg ;\
+	  echo -n "'" ;\
 	fi
 
 
