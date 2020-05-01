@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# $1 will be of the form:
+# 'zoommtg://zoom.us/join?action=join&confid=dXNzPTVhNDYyMjAxLjAzRXdVclZEeWRpRDlRTC16WU1FM05FVnN6c0pFVk9uanpRWlJjQjVQUzAzbkp3eVkwU1RnZ1g5U2pScDhjakRfOG5KeTRzcXhCSHVJVG1La2Z5aGlBJTNEJTNEJnRpZD01OTVkMzMzMDdmYTc0OTk5YjcyYWQ3ZTUzMjllNmFiMA%3D%3D&confno=91265111161&zc=0&pwd=UE54Y3AxbHRvRlA2azQ1K2VWMEF2Zz09&pk=&mcv=0.92.11227.0929&browser=chrome'
+#
+# What we want is:
+# 'https://us02web.zoom.us/wc/join/91265111161?pwd=UE54Y3AxbHRvRlA2azQ1K2VWMEF2Zz09'
+#
+# The important thing is is the "confno". Probably pwd is needed too.
+# So, basically, we want to transform:
+# "zoommtg://zoom.us/...confno=9126511116"
+# to be "https://zoomus/wc/join/9216511116?pwd=..."
+# 
+
+url="${1#zoommtg://}"		# zoom.us/join?action=join&confid=...
+hostname="${url%%/*}"		# zoom.us
+confno="${url#*confno=}"	# 9216511116&pwd=UE54Y...
+etc="${confno#*&}"		# pwd=UE54Y..
+confno="${confno%%&*}"		# 9216511116
+url="https://$hostname/wc/join/$confno?$etc"
+
+# As of Firefox 68.7.0 in May 2020, Zoom refuses to allow audio in
+# Firefox and suggests using Google Chrome. Once this is fixed, this
+# can just be "xdg-open".
+chromium "$url" || google-chrome "$url" || chrome "$url" || xdg-open "$url"
+
+# There is no Zoom.... only Zool.

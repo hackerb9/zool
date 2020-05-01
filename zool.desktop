@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Zoom
+GenericName=Zoom Web Client
+Comment=Open up a zoommtg:// link using a web browser
+Exec=zool %U
+Icon=zool
+Terminal=false
+Type=Application
+StartupNotify=true
+MimeType=x-scheme-handler/zoommtg;
+Categories=Network;Communication;AudioVideo;Privacy;P2P;
