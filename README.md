@@ -1,6 +1,6 @@
 # zool
 
-Always use Zoom *web*client under GNU/Linux by registering a handler
+Always use Zoom **web**client under GNU/Linux by registering a handler
 for zoommtg:// URIs
 
 ## Installation
