@@ -3,6 +3,17 @@
 Always use Zoom *web*client under GNU/Linux by registering a handler
 for zoommtg:// URIs
 
+## Installation
+
+```
+git clone https://github.com/hackerb9/zool
+cd zool
+make install
+
+```
+
+That is all.
+
 ## What? Why? Huh?
 
 Zoom is a video conferencing service that became quite popular during
@@ -21,16 +32,6 @@ that already exists in Free Software web-browsers, such as
 No need to trust a proprietary, closed-source client on your computer.
 (Of course, your data is still being sent through Zoom's networks, so
 maybe suggest the host consider another alternative next time)..
-
-## Installation
-
-```
-git clone https://github.com/hackerb9/zool
-cd zool
-make install
-```
-
-That is all.
 
 ## Bugs
 
