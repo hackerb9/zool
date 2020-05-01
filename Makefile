@@ -27,7 +27,20 @@ usage:
 install:
 	cp -a zool ${bindir}
 	cp -a zool.desktop ${HOME}/.local/share/applications/
-	xdg-mime default ${HOME}/.local/share/applications/zool.desktop x-scheme-handler/zoommtg
+	-xdg-mime default ${HOME}/.local/share/applications/zool.desktop x-scheme-handler/zoommtg
+	-gio mime x-scheme-handler/zoommtg zool.desktop
+	@if xdg-mime query default x-scheme-handler/zoommtg | grep -s zool;\
+	then\
+	  echo "All done!" ;\
+	else \
+	  echo "Oops, something went wrong.Running: " ;\
+	  echo "  xdg-mime query default x-scheme-handler/zoommtg" ;\
+	  echo "ought to say zool.desktop, but instead it says" ;\
+	  echo -n "'"
+	  xdg-mime query default x-scheme-handler/zoommtg
+	  echo -n "'"
+	fi
+
 
 uninstall:
 	rm -f ${HOME}/.local/share/applications/zool.desktop
