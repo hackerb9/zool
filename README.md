@@ -20,7 +20,7 @@ that already exists in Free Software web-browsers, such as
 [Chromium](https://www.chromium.org/developers/how-tos/get-the-code).
 No need to trust a proprietary, closed-source client on your computer.
 (Of course, your data is still being sent through Zoom's networks, so
-maybe consider another alternative next time)..
+maybe suggest the host consider another alternative next time)..
 
 ## Installation
 
