@@ -27,7 +27,7 @@ usage:
 install:
 	cp -a zool ${bindir}
 	sed "s#_BINDIR_#${bindir}#" < zool.desktop > ${HOME}/.local/share/applications/zool.desktop
-	-xdg-mime default ${HOME}/.local/share/applications/zool.desktop x-scheme-handler/zoommtg
+	-xdg-mime default  ${HOME}/.local/share/applications/zool.desktop  x-scheme-handler/zoommtg
 	@if type gio >/dev/null 2>&1 ;\
 	then \
 	  gio mime x-scheme-handler/zoommtg zool.desktop ;\
@@ -38,11 +38,17 @@ install:
 	  true "There is no Zoom, only Zool!" ;\
 	  echo "Success." ;\
 	else \
+	  echo "" ;\
 	  echo "Oops, something went wrong. Output from: " ;\
+	  echo "" ;\
 	  echo "  xdg-mime query default x-scheme-handler/zoommtg" ;\
-	  echo "ought to say zool.desktop, but instead it says" ;\
+	  echo "" ;\
+	  echo "ought to say zool.desktop, but instead it says:" ;\
+	  echo "" ;\
 	  echo -n "  " ;\
 	  xdg-mime query default x-scheme-handler/zoommtg ;\
+	  echo "" ;\
+	  false ;\
 	fi
 
 
