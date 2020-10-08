@@ -26,7 +26,7 @@ usage:
 	@echo
 install:
 	cp -a zool ${bindir}
-	cp -a zool.desktop ${HOME}/.local/share/applications/
+	sed "s#_BINDIR_#${bindir}#" < zool.desktop > ${HOME}/.local/share/applications/zool.desktop
 	-xdg-mime default ${HOME}/.local/share/applications/zool.desktop x-scheme-handler/zoommtg
 	@if type gio >/dev/null 2>&1 ;\
 	then \

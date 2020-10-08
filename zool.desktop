@@ -2,7 +2,7 @@
 Name=Zoom
 GenericName=Zoom Web Client
 Comment=Open up a zoommtg:// link using a web browser
-Exec=zool %U
+Exec=bash -c "PATH=_BINDIR_:$PATH zool %U"
 Icon=zool
 Terminal=false
 Type=Application
